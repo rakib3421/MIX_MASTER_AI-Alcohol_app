@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cocktail Recipe Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>Cocktail Recipe Generator 🍹</h1>
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label>Upload Cocktail Image:</label>
+        <input type="file" name="image" required>
+
+        <label>Extra Ingredients (Optional):</label>
+        <textarea name="ingredients" placeholder="Add extra ingredients here..."></textarea>
+
+        <label>Gastronomy Suggestions (Optional):</label>
+        <textarea name="gastronomy" placeholder="Suggest food pairing ideas..."></textarea>
+
+        <button type="submit">Generate Recipe</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    {% if recipe %}
+    <div class="recipe-result">
+        <h2>Generated Cocktail Recipe 🍸</h2>
+        <pre>{{ recipe }}</pre>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
